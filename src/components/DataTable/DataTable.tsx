@@ -13,13 +13,15 @@ const columns: GridColDef[] = [
       width: 90,
     },
     {
-      field: 'makeandmodel',
-      headerName: 'Cars',
+      field: 'makeAndModel',
+      headerName: 'Make and Model',
       description: 'This column has a value getter and is not sortable.',
       sortable: false,
       width: 160,
-   // valueGetter: (params: GridValueGetterParams) =>
-       // `${params.getValue('model') || ''} ${params.getValue('make') || ''}`,
+      valueGetter: (params: GridValueGetterParams) =>
+        `${params.getValue(params.id, 'make') || ''} ${
+          params.getValue(params.id, 'model') || ''
+        }`,
     },
   ];
 
